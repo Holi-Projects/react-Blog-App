@@ -9,13 +9,25 @@ import './style.css';
 
 const App = () =>  {
     const[list, setList] = useState([])
+    const[comm, setComm] = useState([])
     const[edit,setEdit] = useState({title:'', post:''})
     const date = Date.now()
     const time = <TimeAgo date={date} />
+    
 
  const formSubmit =(top,msg)=>{
       const postMsg = {title: top, post: msg, time: time}
       setList([...list, postMsg])
+ }
+
+ const comSubmit = (au,com) => {
+   const comMsg = {author: au, comment: com, time:time}
+   setComm([...comm, comMsg])
+   //console.log(comm)
+ }
+
+ const commentID = (i) =>{
+   console.log(i)
  }
 
  const editPost = (e,i) =>{
@@ -41,8 +53,8 @@ const App = () =>  {
       <div>
       <Redirect to='/posts' />
 	    <Route path="/new" component={()=><Form submitVals={formSubmit} editVal={edit}/>}/>
-      <Route path="/posts" component={()=><Posts post={list} edit={editPost} del={delPost}/>}/> 
-      <Route path="/comments" component={Comments} />
+      <Route path="/posts" component={()=><Posts post={list} edit={editPost} del={delPost} comID={commentID}/>}/> 
+      <Route path="/comments" component={()=><Comments comms={comSubmit} comList={comm}/>} />
       </div>
       </BrowserRouter>
     );

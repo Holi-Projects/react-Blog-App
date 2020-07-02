@@ -8,13 +8,24 @@ const Comment = (props) => {
   const[comm,setComm] = useState('')
 
   const handleSubmit = (e) => {
-    console.log(author + comm)
+    if(author != '' && comm != ''){
+      props.comms(author,comm)
+    }
     e.preventDefault()
   }
+  
+  const comments = props.comList.map( (com,i) =>(
+    <p key={i}>
+    Written By: {com.author}
+    Comment: {com.comment}
+    Made: {com.time}
+    </p>
+  ))
 
+ 
   return (
     <div>
-      <h3>comments here</h3>
+      {comments}
       <form onSubmit={handleSubmit}>
         Author: <input type='text'
           value={author}
