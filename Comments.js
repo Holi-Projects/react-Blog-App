@@ -6,11 +6,13 @@ const Comment = (props) => {
 
   const[author,setAuthor] = useState('')
   const[comm,setComm] = useState('')
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     if(author != '' && comm != ''){
       props.comms(author,comm)
     }
+    history.push('/posts')
     e.preventDefault()
   }
   
@@ -23,14 +25,15 @@ const Comment = (props) => {
     <b>Comment:</b> {com.comment}<br/>
    <b>Made:</b> {com.time}<br/>
     </p>
-    )}
+    )} 
   })
 
+  const alt = <p>No comments added</p>
  
   return (
     <div>
-    <h3>Comments for {head}</h3>
-      {comments}
+    <h3>Comments for Post Title: {head}</h3>
+      {(comments.length>0)?comments:alt}
       <form onSubmit={handleSubmit}>
         Author: <input type='text'
           value={author}
