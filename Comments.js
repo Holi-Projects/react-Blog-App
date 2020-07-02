@@ -14,17 +14,22 @@ const Comment = (props) => {
     e.preventDefault()
   }
   
-  const comments = props.comList.map( (com,i) =>(
-    <p key={i}>
-    Written By: {com.author}
-    Comment: {com.comment}
-    Made: {com.time}
+  const head = props.postTitle
+  
+  const comments = props.comList.map( (com,i) =>{
+    if(com.title === head){
+    return (<p key={i}>
+    <b>Written By:</b> {com.author}<br/>
+    <b>Comment:</b> {com.comment}<br/>
+   <b>Made:</b> {com.time}<br/>
     </p>
-  ))
+    )}
+  })
 
  
   return (
     <div>
+    <h3>Comments for {head}</h3>
       {comments}
       <form onSubmit={handleSubmit}>
         Author: <input type='text'

@@ -17,7 +17,7 @@ const Posts = (props) => {
       <b>Title:</b> {post.title}<br/>
       <b>Message: </b>{post.post} <br/>
       <b>Posted: </b>{post.time} <br/> 
-      <button onClick={()=>comID(i)}>Comments</button>
+      <button onClick={()=>comID(post.title)}>Comments</button>
       <Link to='/new'><button onClick={(e) => props.edit(e,i)}>Edit</button></Link>
       <button onClick={(e) => props.del(e,i)}>Delete</button>
       </p>

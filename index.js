@@ -13,7 +13,11 @@ const App = () =>  {
     const[edit,setEdit] = useState({title:'', post:''})
     const date = Date.now()
     const time = <TimeAgo date={date} />
-    
+    let parentPost = ''
+
+const commentID = (i) =>{
+   parentPost = i
+ }
 
  const formSubmit =(top,msg)=>{
       const postMsg = {title: top, post: msg, time: time}
@@ -21,14 +25,12 @@ const App = () =>  {
  }
 
  const comSubmit = (au,com) => {
-   const comMsg = {author: au, comment: com, time:time}
+   const comMsg = {author: au, comment: com, time:time, title:parentPost}
+   console.log(parentPost)
    setComm([...comm, comMsg])
-   //console.log(comm)
+   console.log(comm)
  }
 
- const commentID = (i) =>{
-   console.log(i)
- }
 
  const editPost = (e,i) =>{
    const editPost = [...list]
@@ -54,7 +56,7 @@ const App = () =>  {
       <Redirect to='/posts' />
 	    <Route path="/new" component={()=><Form submitVals={formSubmit} editVal={edit}/>}/>
       <Route path="/posts" component={()=><Posts post={list} edit={editPost} del={delPost} comID={commentID}/>}/> 
-      <Route path="/comments" component={()=><Comments comms={comSubmit} comList={comm}/>} />
+      <Route path="/comments" component={()=><Comments comms={comSubmit} comList={comm} postTitle={parentPost}/>} />
       </div>
       </BrowserRouter>
     );
