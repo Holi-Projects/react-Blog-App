@@ -7,13 +7,16 @@ const Comment = (props) => {
 
   const[author,setAuthor] = useState('')
   const[comm,setComm] = useState('')
+  const[err,setErr] = useState('')
   const history = useHistory();
 
   const handleSubmit = (e) => {
     if(author != '' && comm != ''){
       props.comms(author,comm)
+       history.push('/posts')
+    }else{
+      setErr("Please enter missing fields :)")
     }
-    history.push('/posts')
     e.preventDefault()
   }
   
@@ -39,6 +42,7 @@ const Comment = (props) => {
       {(comments.length>0)?comments:alt}
       
       <h3>New Comment:</h3>
+      <p style={{color:'red'}}>{err}</p>
       <form onSubmit={handleSubmit}>
         <b>Author:</b> <input type='text'
           value={author}
@@ -50,7 +54,9 @@ const Comment = (props) => {
           value={comm}
           onChange={(e) => setComm(e.target.value)} />
           <br /><br />
-        <button>Add Comment</button><Link to='/posts'><button id='goBack'>Back</button></Link>
+        <button>Add Comment</button>
+        <Link to='/posts'>
+        <button id='goBack'>Back</button></Link>
       </form>
       
     </div>

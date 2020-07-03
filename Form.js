@@ -7,6 +7,7 @@ const Form = (props) => {
     const[title, setTitle] = useState('')
     const[message, setMessage] = useState('')
     const[edit,setEdit] = useState('')
+    const[err,setErr] = useState('')
 
     const handleSubmit = (e)=>{
         if(title != '' && message != ''){
@@ -14,6 +15,8 @@ const Form = (props) => {
         setTitle('')
         setMessage('')
         history.push('/posts');
+        } else{
+          setErr('Please enter missing fields ):')
         }
         e.preventDefault()
     }
@@ -30,6 +33,7 @@ const Form = (props) => {
   return(
     <div>
     <h1>New Post</h1>
+    <p style={{color:'red'}}>{err}</p>
     <form onSubmit={handleSubmit}>
     <label> 
     <b>Title:</b> 
