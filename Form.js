@@ -32,18 +32,18 @@ const Form = (props) => {
     <h1>New Post</h1>
     <form onSubmit={handleSubmit}>
     <label> 
-    Title: 
+    <b>Title:</b> 
       <input type='text' 
       value={title} 
       onChange={(e)=>setTitle(e.target.value)}/>
     </label><br/><br/>  
     
-    Message: <br/>
+    <b>Message:</b> <br/>
       <textarea cols='30' rows='6'
       value={message} 
       onChange={(e)=>setMessage(e.target.value)}/>
       <br/><br/>
-      <button>Create Post</button>
+      <button>Create Post</button><button onClick={()=>history.push('/posts')} style={{marginLeft:'105px'}}>Back</button>
     </form>
     </div>
     )

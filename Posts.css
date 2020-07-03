@@ -1,0 +1,23 @@
+
+
+h1 {
+  background-color: lightblue
+}
+
+.post{
+  margin: 10px 10px 10px 10px;
+  border: 0.2px solid gray;
+  padding: 10px
+}
+
+.post p{
+  margin-bottom: -15px
+}
+
+#btn{
+  margin-left: 15px
+}
+
+#time{
+  font-size: 12px
+}

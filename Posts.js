@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './Posts.css'
 
 
 const Posts = (props) => {
@@ -13,21 +14,21 @@ const Posts = (props) => {
   }
 
   const posts = props.post.map( (post,i) =>(
-      <p key={i}>
-      <b>Title:</b> {post.title}<br/>
-      <b>Message: </b>{post.post} <br/>
-      <b>Posted: </b>{post.time} <br/> 
+      <div key={i} className='post'>
+      <p><b>Title:</b> <span style={{fontSize:'25px'}}>{post.title}</span></p><br/>
+      <p><b>Description: </b>{post.post} </p><br/>
+      <p id='time'><b>Posted: </b>{post.time} </p><br/><br/>
       <button onClick={()=>comID(post.title)}>Comments</button>
-      <Link to='/new'><button onClick={(e) => props.edit(e,i)}>Edit</button></Link>
-      <button onClick={(e) => props.del(e,i)}>Delete</button>
-      </p>
+      <Link to='/new'><button id='btn' onClick={(e) => props.edit(e,i)}>Edit</button></Link>
+      <button id='btn' onClick={(e) => props.del(e,i)}>Delete</button>
+      </div>
   ))
   // if(posts.length === 0){
   //     history.push('/home')
   // }
 
   return(
-    <div>
+    <div className='content'>
       <h1>Forum Posts</h1>
       <p>Number of discussions {posts.length}</p>
         <Link to='/new'>Add New Post</Link>

@@ -1,0 +1,28 @@
+#goBack{
+ margin-left: 85px;
+}
+/* textarea{
+  margin-left:58px
+} */
+
+h3 span {
+  font-size: 25px;
+  color: green
+}
+
+.comm{
+  margin: 10px 10px 10px 10px;
+  border: 0.2px solid gray;
+  padding: 10px
+}
+
+#au{
+    font-style: italic;
+    /* font-weight: bold; */
+    font-size: x-large;
+    color: blue;
+}
+
+.comm span{
+  font-size: 12px
+}

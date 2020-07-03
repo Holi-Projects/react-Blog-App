@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './Comments.css'
 
 const Comment = (props) => {
 
@@ -20,10 +21,11 @@ const Comment = (props) => {
   
   const comments = props.comList.map( (com,i) =>{
     if(com.title === head){
-    return (<p key={i}>
-    <b>Written By:</b> {com.author}<br/>
-    <b>Comment:</b> {com.comment}<br/>
-   <b>Made:</b> {com.time}<br/>
+    return (
+      <p key={i} className='comm'>
+    <b>Written By:</b> <span id='au'>{com.author}</span><br/><br/>
+    <b>Comment:</b> {com.comment}<br/><br/>
+    <span><b>Made:</b> {com.time}</span><br/>
     </p>
     )} 
   })
@@ -32,19 +34,25 @@ const Comment = (props) => {
  
   return (
     <div>
-    <h3>Comments for Post Title: {head}</h3>
+    <h3>Comments for post titled: <span>{head}</span></h3>
+      
       {(comments.length>0)?comments:alt}
+      
+      <h3>New Comment:</h3>
       <form onSubmit={handleSubmit}>
-        Author: <input type='text'
+        <b>Author:</b> <input type='text'
           value={author}
-          onChange={(e) => setAuthor(e.target.value)} /><br />
+          onChange={(e) => setAuthor(e.target.value)} /><br/><br/>
 
-        Comment: <br /><textarea
+        <b>Comment:</b> <br/>
+        <textarea style={{marginLeft:'58px'}}
+        cols='21' rows='5'
           value={comm}
-          onChange={(e) => setComm(e.target.value)} /><br />
-        <button>Add Comment</button>
-      </form><br />
-      <Link to='/posts'><button>Back</button></Link>
+          onChange={(e) => setComm(e.target.value)} />
+          <br /><br />
+        <button>Add Comment</button><Link to='/posts'><button id='goBack'>Back</button></Link>
+      </form>
+      
     </div>
   )
 }

@@ -26,9 +26,8 @@ const commentID = (i) =>{
 
  const comSubmit = (au,com) => {
    const comMsg = {author: au, comment: com, time:time, title:parentPost}
-   console.log(parentPost)
    setComm([...comm, comMsg])
-   console.log(comm)
+  
  }
 
 
