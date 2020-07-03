@@ -1,9 +1,16 @@
 #goBack{
  margin-left: 85px;
 }
-/* textarea{
-  margin-left:58px
-} */
+
+.form{
+  border: solid;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    min-width: fit-content;
+}
 
 h3 span {
   font-size: 25px;

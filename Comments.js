@@ -32,7 +32,7 @@ const Comment = (props) => {
       <p key={i} className='comm'>
     <b>Written By:</b> <span id='au'>{com.author}</span><br/><br/>
     <b>Comment:</b> {com.comment}<br/><br/>
-    <span><b>Made:</b> {com.time}</span><br/>
+    <span><b>Comment Made:</b> {com.time}</span><br/>
     </p>
     )} 
   })
@@ -41,20 +41,20 @@ const Comment = (props) => {
  
   return (
     <div>
-    <h3>Comments for post titled: <span>{head}</span></h3>
+    <h3>Post title: <span>{head}</span></h3>
       
       {(comments.length>0)?comments:alt}
       
-      <h3>New Comment:</h3>
+      <h3 style={{textAlign:'center'}}>New Comment:</h3>
       <p>{err}</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <b>Author:</b> <input type='text'
           value={author}
           onChange={(e) => setAuthor(e.target.value)} /><br/><br/>
 
         <b>Comment:</b> <br/>
-        <textarea style={{marginLeft:'58px'}}
-        cols='21' rows='5'
+        <textarea 
+        cols='30' rows='6'
           value={comm}
           onChange={(e) => setComm(e.target.value)} />
           <br /><br />

@@ -29,12 +29,22 @@ const Form = (props) => {
        //console.log(ev)
     }
     
+    const style ={
+      border: 'solid',
+      textAlign: 'center',
+      marginTop: '10px',
+      padding: '20px',
+      marginLeft: '20%',
+      marginRight: '20%',
+      minWidth: "fit-content"
+    }
     
   return(
     <div>
     <h1>New Post</h1>
     <p style={{color:'red'}}>{err}</p>
-    <form onSubmit={handleSubmit}>
+
+    <form onSubmit={handleSubmit} style={style}>
     <label> 
     <b>Title:</b> 
       <input type='text' 
@@ -42,7 +52,7 @@ const Form = (props) => {
       onChange={(e)=>setTitle(e.target.value)}/>
     </label><br/><br/>  
     
-    <b>Message:</b> <br/>
+    <b>Description:</b> <br/>
       <textarea cols='30' rows='6'
       value={message} 
       onChange={(e)=>setMessage(e.target.value)}/>
