@@ -3,5 +3,7 @@ h1, p {
 }
 
 html{
-  background-color: aliceblue
+  background-color: aliceblue;
+  margin-left: 15%;
+  margin-right: 15%
 }

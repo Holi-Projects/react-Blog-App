@@ -12,10 +12,14 @@ const Comment = (props) => {
 
   const handleSubmit = (e) => {
     if(author != '' && comm != ''){
-      props.comms(author,comm)
-       history.push('/posts')
+      setErr(<span style={{color:'green'}}>Comment added</span>)
+      setTimeout(()=>{
+          props.comms(author,comm)
+          history.push('/posts')
+      },1500)
+      
     }else{
-      setErr("Please enter missing fields :)")
+      setErr(<span style={{color:'red'}}>Please enter missing fields :)</span>)
     }
     e.preventDefault()
   }
@@ -42,7 +46,7 @@ const Comment = (props) => {
       {(comments.length>0)?comments:alt}
       
       <h3>New Comment:</h3>
-      <p style={{color:'red'}}>{err}</p>
+      <p>{err}</p>
       <form onSubmit={handleSubmit}>
         <b>Author:</b> <input type='text'
           value={author}

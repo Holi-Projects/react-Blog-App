@@ -52,6 +52,7 @@ const commentID = (i) =>{
     return (
       <BrowserRouter>
       <div>
+      <h2 style={{textAlign:'center',fontSize:'40px'}}>React Blog</h2>
       <Redirect to='/posts' />
 	    <Route path="/new" component={()=><Form submitVals={formSubmit} editVal={edit}/>}/>
       <Route path="/posts" component={()=><Posts post={list} edit={editPost} del={delPost} comID={commentID}/>}/> 

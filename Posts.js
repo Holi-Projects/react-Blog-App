@@ -31,7 +31,7 @@ const Posts = (props) => {
     <div className='content'>
       <h1>Forum Posts</h1>
       <p>Number of discussions {posts.length}</p>
-        <Link to='/new'>Add New Post</Link>
+        <Link to='/new'><button id='link'>Add New Post</button></Link>
         {posts}
     </div>
     
