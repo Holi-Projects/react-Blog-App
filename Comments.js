@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './Comments.css'
 
+
 const Comment = (props) => {
 
   const[author,setAuthor] = useState('')
@@ -12,7 +13,7 @@ const Comment = (props) => {
 
   const handleSubmit = (e) => {
     if(author != '' && comm != ''){
-      setErr(<span style={{color:'green'}}>Comment added</span>)
+      setErr(<span style={{color:'green'}}>Comment added<span id='loading'/></span>)
       setTimeout(()=>{
           props.comms(author,comm)
           history.push('/posts')

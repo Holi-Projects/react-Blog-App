@@ -33,3 +33,13 @@ h3 span {
 .comm span{
   font-size: 12px
 }
+
+#loading {
+            background: url(https://cdn.jsdelivr.net/gh/Holi-Projects/react-Blog-App@master/2.webp) no-repeat center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9999999;
+        }
